@@ -7,7 +7,7 @@ const dev = process.env.ROLLUP_WATCH;
 const preview = process.env.PREVIEW;
 
 function getServeOptions() {
-  return {
+  return Object.assign(Object.create(null), {
     contentBase: preview ? ['./preview', './dist'] : ['./dist'],
     host: '0.0.0.0',
     port: 5000,
@@ -15,7 +15,7 @@ function getServeOptions() {
     headers: {
       'Access-Control-Allow-Origin': '*',
     },
-  };
+  });
 }
 
 export default {
